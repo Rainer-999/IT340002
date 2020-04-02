@@ -1,0 +1,46 @@
+ sudo apt install -y bind9 bind9utils bind9-doc dnsutils
+    2  ifconfig
+    3  sudo nano /etc/bind/named.conf.local
+    4  sudo cp /etc/bind/db.local /etc/bind/forward.IT340.local.db
+    5  sudo nano /etc/bind/forward.IT340.local.db
+    6  sudo cp /etc/bind/db.127 /etc/bind/reverse.hostname.local.db
+    7  sudo nano /etc/bind/reverse.hostname.local.db
+    8  sudo named-checkconf
+    9  sudo named-checkzone hostname.local /etc/bind/forward.hostname.local.db
+   10  sudo named-checkzone IT340.local /etc/bind/forward.IT340.local.db
+   11  named-checkzone 0.168.192.in-addr.arpa /etc/bind/reverse.hostname.local.db
+   12  named-checkzone 0.168.192.in-addr.arpa /etc/bind/reverse.IT340.local.db
+   13  sudo cp /etc/bind/db.127 /etc/bind/reverse.IT340.local.db
+   14  sudo nano /etc/bind/reverse.IT340.local.db
+   15  named-checkzone 0.168.192.in-addr.arpa /etc/bind/reverse.IT340.local.db
+   16  sudo systemctl restart bind9
+   17  sudo systemctl enable bind9
+   18  sudo systemctl status bind9
+   19  sudo systemctl restart bind9
+   20  sudo systemctl status bind9
+   21  sudo systemctl restart bind9
+   22  sudo systemctl enable bind9
+   23  sudo systemctl status bind9
+   24  sudo nano /etc/bind/forward.IT340.local.db
+   25  sudo nano /etc/bind/reverse.hostname.local.db
+   26  sudo nano /etc/bind/reverse.IT340.local.db
+   27  sudo systemctl restart bind9
+   28  sudo systemctl enable bind9
+   29  sudo systemctl status bind9
+   30  named-checkzone 0.168.192.in-addr.arpa /etc/bind/reverse.hostname.local.db
+   31  named-checkzone 0.168.192.in-addr.arpa /etc/bind/reverse.IT340.local.db
+   32  sudo rm /etc/bind/reverse.hostname.local.db
+   33  rm /etc/bind/reverse.hostname.local.db
+   34  sudo nano /etc/bind/forward.IT340.local.db
+   35  sudo nano /etc/bind/named.conf.local:18
+   36  sudo nano /etc/bind/named.conf.local
+   37  sudo systemctl restart bind9
+   38  sudo systemctl enable bind9
+   39  sudo systemctl status bind9
+   40  sudo nano /etc/bind/named.conf.local
+   41  sudo systemctl restart bind9
+   42  sudo systemctl status bind9
+   43  sudo nano /etc/resolv.conf
+   44  dig www.IT340.local
+   45  dig -x 192.168.0.131
+   46  history
